@@ -59,3 +59,8 @@ jobs:
         - name: Terraform plan status
           if: steps.plan.outcome == 'failure'
           run: exit 1
+
+        - name: Debug Secret Environment Variables
+          run: |
+            echo "AWS_ACCESS_KEY_ID is set: ${#AWS_ACCESS_KEY_ID}"
+            echo "BUCKET_TF_STATE is set: ${#BUCKET_TF_STATE}"
